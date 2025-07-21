@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>書類作成中...</title>
+  <script>
+    const meetingType = "給食会議";
+    const user = "Slackユーザー名";  // 必要ならクエリ取得にしてもOK
+    const gasUrl = "https://script.google.com/macros/s/AKfycbwIdanZMq2T_uJ08EsXeXgNG25S8OD7Sd4rvNO07xuQQVSQxgSxFZJdZKf1pnGDDgjC8w/exec";
+
+    fetch(`${gasUrl}?meetingType=${encodeURIComponent(meetingType)}&user=${encodeURIComponent(user)}`)
+      .then(() => window.close())
+      .catch(error => {
+        document.body.innerHTML = `<p>⚠️ 書類の作成に失敗しました。<br>${error}</p>`;
+      });
+  </script>
+</head>
+<body>
+  <p>📝 書類を作成中です。しばらくお待ちください...</p>
+</body>
+</html>
